@@ -26,3 +26,5 @@ def index(who, mess):
             print("МТС:", data)
         return data
     return str(what) + str(command) + str(s)#f"{} {} {}".(what, command, s)
+    
+app.run()
