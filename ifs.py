@@ -29,6 +29,10 @@ def whereavto():
 
 def diagn():
     print("results diagnostik")
+    
+def getr(command):
+    x = requests.get('http://127.0.0.1:5000/1/'+command)
+    return x.text
 
 if __name__=='__main__':
     while True:
