@@ -1,4 +1,10 @@
 import user 
+import user
+from threading import Thread
+import time
+import socket
+import requests
+
 
 def drive_safe(pain):
     #получать данные с устройства отслеживания состояния, когда выдает предупреждение
@@ -32,14 +38,24 @@ def whereavto():
 def diagn():
     print("results diagnostik")
     
+#Запрос к МТС
 def getr(command):
     x = requests.get('http://127.0.0.1:5000/1/'+command)
     return x.text
+    
+    
+def ugon():
+    print(getr('stolen_car'))
+
 
 if __name__=='__main__':
     while True:
         print("Введите запрос:")
         i = int(input())
+        
+        if i == 10:
+            ugon()
+            
         if i == 1:
             print("Включаю климат контроль")
             climat()

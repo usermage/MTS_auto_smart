@@ -6,8 +6,8 @@ def kek():
     return b"mek"
     
 def stolen_car():
-    print('Кажется вашу машину угнали!')
-    return 'ok'
+    print('Кажется, вашу машину угнали!')
+    return b'ok'
 	
 def prescript(num):
     while True:
