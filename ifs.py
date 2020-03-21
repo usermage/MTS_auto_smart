@@ -1,8 +1,27 @@
-import user 
 from threading import Thread
 import time
 import socket
 import requests
+from random import randint
+
+
+def prescript(num):
+    while True:
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            s.bind(('127.0.0.1', 12377))
+            s.listen()
+            conn, addr = s.accept()
+            with conn:
+                print('Connected by', addr)
+                data = conn.recv(1024)
+                if not data:
+                    break
+                data = data.decode()
+                if data == 'whereavto':
+                    conn.sendall(whereavto())
+                    
+thread1 = Thread(target=prescript, args=(200,))
+thread1.start()
 
 
 def drive_safe(pain):
@@ -23,16 +42,16 @@ def climat():
 
 def whereavto():
     #от машины данные, получаем лог
-    res=1
+    res=randint(0, 2)
     #машина где-то стоит
-    if res==1:
-        print("Координаты : на карте")
+    if res == 0:
+        return b'static'
     #мотор выключен, машина движется
-    if res==2:
-        print("Машину эвакуируют")
+    if res == 1:
+        return b"warning"
     # машина едет, но в ней не владелец
-    if res ==3:
-        print("Машину угнали. Давай позвоним в полицию")
+    if res == 2:
+        return b"alarm"
 
 def diagn():
     print("results diagnostik")
@@ -72,4 +91,5 @@ if __name__=='__main__':
             # возвращает состояние машины, коды и описание проблем, выдает ближайшие адреса сервисов при необходимости
             diagn()
         if i==0:
+            thread1.join()
             break
