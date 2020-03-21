@@ -4,6 +4,10 @@ import socket
 
 def kek():
     return b"mek"
+    
+def stolen_car():
+    print('Кажется вашу машину угнали!')
+    return 'ok'
 	
 def prescript(num):
     while True:
@@ -19,6 +23,8 @@ def prescript(num):
                 data = data.decode()
                 if data == 'kek':
                     conn.sendall(kek())
+                if data == 'stolen_car':
+                    conn.sendall(stolen_car())
                     
 thread1 = Thread(target=prescript, args=(200,))
 thread1.start()
