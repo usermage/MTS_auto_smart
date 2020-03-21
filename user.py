@@ -28,4 +28,4 @@ def prescript(num):
                     
 thread1 = Thread(target=prescript, args=(200,))
 thread1.start()
-	
+	 
