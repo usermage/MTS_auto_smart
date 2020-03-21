@@ -19,7 +19,7 @@ def index(who, mess):
             print("МТС:", data)
         return data
     else:
-        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s: 
             s.connect(('127.0.0.1', port_auto))
             s.sendall(mess.encode())
             data = s.recv(1024)
