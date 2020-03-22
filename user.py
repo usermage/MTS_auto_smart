@@ -3,15 +3,28 @@ import time
 import socket
 import requests
 
+root = Tk()
+root.geometry('1000x1000')
+canvas = Canvas(root,width=999,height=999)
+canvas.pack()
+
 def kek():
     return b"mek"
     
 def stolen_car():
     print('Кажется, вашу машину угнали!')
+    global canvas
+    pilImage = Image.open("../../../Downloads/use1.jpg")
+    image = ImageTk.PhotoImage(pilImage)
+    canvas.image = image
     return b'ok'
 	
 def Diagnostik():
 	print('Пришли результаты диагностики')
+    global canvas
+    pilImage = Image.open("../../../Downloads/use1.jpg")
+    image = ImageTk.PhotoImage(pilImage)
+    canvas.image = image
 	return b'Diagnostik'
 	
 def Car_safety_results():
@@ -45,6 +58,12 @@ def getr(command):
 
 def whereavto():
     print(getr('whereavto'))
+    
+    
+pilImage = Image.open("../../../Downloads/start.jpg")
+image = ImageTk.PhotoImage(pilImage)
+imagesprite = canvas.create_image(400,400,image=image)
+root.mainloop()
 	 
      
 if __name__=='__main__':
