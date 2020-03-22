@@ -9,6 +9,14 @@ def stolen_car():
     print('Кажется, вашу машину угнали!')
     return b'ok'
 	
+def Diagnostik():
+	print('Пришли результаты диагностики')
+	return b'Diagnostik'
+	
+def Car_safety_results():
+	print('Результаты диагностики системы безопасности')
+	return b'Safety Diagnostik'
+	
 def prescript(num):
     while True:
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
